@@ -32,7 +32,7 @@ class DeliveryOrder:
         self.driver = driver
 
     def summary(self):
-        return f"Order Summary:\nItem: {self.item}\nCustomer: {self.customer}\nStatus: {self.status}\nDriver: {self.driver.name}"
+        return f"Order Summary:\nItem: {self.item}\nCustomer: {self.customer.name}\nStatus: {self.status}\nDriver: {self.driver.name}"
 
 first_customer = Customer("Alice", "123")
 second_customer = Customer("Bob", "456")
@@ -41,13 +41,14 @@ driver = Driver("David", "motorcycle")
 first_customer.introduce()
 second_customer.introduce()
 driver.introduce()
+print()
 alice_order = DeliveryOrder(first_customer, "Laptop")
 alice_order.assign_driver(driver)
 bob_order = DeliveryOrder(second_customer, "Headphones")
 bob_order.assign_driver(driver)
-alice_order.summary()
+print(alice_order.summary())
 print()
-bob_order.summary()
+print(bob_order.summary())
 print()
 driver.deliver(alice_order)
 driver.deliver(bob_order)
